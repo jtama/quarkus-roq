@@ -1,13 +1,32 @@
 ---
-title: Publishing
+title: Publishing a Roq Site
 layout: doc
 ---
 {#include partials/doc/doc-attributes.adoc/}
 
-= Publishing a Roq Site
-
 {#include partials/doc/edit-contrib.adoc name="publishing" /}
 
+[#generating]
+== Generating your Roq site
+
+This command:
+[source,shell]
+----
+quarkus build -Dquarkus.roq.generator.batch
+quarkus run
+----
+
+🚀 The site will be generated in `target/roq`.
+
+
+Here is a one-liner using Maven:
+
+[source,shell]
+----
+QUARKUS_ROQ_GENERATOR_BATCH=true ./mvnw -B package quarkus:run
+----
+
+[#github-action]
 == Roq GitHub Action
 
 Roq provides a https://github.com/quarkiverse/quarkus-roq/blob/main/action.yml[GitHub action] to publish to GitHub pages or other services.
@@ -64,7 +83,7 @@ Then to enable GitHub Pages:
 
 It's all good, restart your deploy workflow and enjoy!
 
-== To other services
+=== To other services
 
 ..github/workflows/deploy-other.yml
 [source,yaml]
@@ -96,22 +115,6 @@ jobs:
 |}
 
 This will create a GitHub artifact named `site` that you can download from another job (or another workflow). For example, the PR Preview https://github.com/quarkiverse/quarkus-roq/blob/main/.github/workflows/preview-pr.yml[workflow] of Roq publishes to Surge.
-
-== Building Roq
-
-Roq is based on Quarkus, you just need to set up a JDK to build your Roq site using this command:
-
-[source,shell]
-----
-export QUARKUS_ROQ_GENERATOR_BATCH=true
-./mvnw -B package quarkus:run
-----
-
-== Other CIs
-
-Using the command above should be easy to configure on any CI.
-
-TIP: if you created a configuration for a given CI which could help others, please share it here 🙏
 
 == Gitlab CI
 
@@ -163,5 +166,12 @@ If everything goes well the pipeline will deploy, the url of the deployment is f
 * Console output of `deploy_roq` job.
 * Clicking `Deploy` => `Pages` on the project sidebar
 * Navigating to the url `\https://gitlab.example.com/user-or-organization/projectpath/project/pages`
+
+== Other CIs
+
+Using the command above should be easy to configure on any CI.
+
+TIP: if you created a configuration for a given CI which could help others, please share it here (or create an issue) 🙏
+
 
 

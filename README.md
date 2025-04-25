@@ -24,10 +24,9 @@
 </div>
 </div>
 
+Roq is a static site generator that makes it easy to build websites and blogs(such as [Roq's blog](https://iamroq.com). It’s built with Java and Quarkus under the hood—but you don’t need to know them to get started.
 
-The Roq Static Site Generator allows to easily create a static website or blog (such as [Roq's blog](https://pages.quarkiverse.io/quarkus-roq/)) using Quarkus super-powers.
-
-Get started [here](https://pages.quarkiverse.io/quarkus-roq/docs/)!
+Get started [here](https://iamroq.com/docs/)!
 
 For those looking for the Roq Quarkus extensions (which can also be used standalone):
 - [Roq Data](https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html): Use json/yaml files content from your templates and articles with type safety.
